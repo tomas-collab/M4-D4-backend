@@ -2,14 +2,17 @@ import express from  'express'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 import mongoose from 'mongoose'
-
+import commentRouter from './services/index.js'
 
 
 const server = express()
-const port = process.env.PORT || 3002
+
 server.use(cors())
 server.use(express.json())
 
+server.use('/comments',commentRouter)
+
+const port = process.env.PORT || 3002
 
 
 mongoose.connect(process.env.MONGO_CONNECTION)
