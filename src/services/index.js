@@ -5,14 +5,14 @@ import express from 'express'
 const commentRouter = express.Router()
 
 commentRouter.route('/')
-// .get(async(req,res,next)=>{
-//     try {
-//         const comment = await commentModel.find()
-//         res.send(comment)
-//     } catch (error) {
-//         next(error)
-//     }
-// })
+.get(async(req,res,next)=>{
+    try {
+        const comment = await commentModel.find()
+        res.send(comment)
+    } catch (error) {
+        next(error)
+    }
+})
 .post(async(req,res,next)=>{
     try {
         const newComments = new commentModel(req.body)
